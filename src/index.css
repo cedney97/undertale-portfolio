@@ -1,6 +1,20 @@
 @font-face {
-  font-family: "8bitoperator JVE Regular";
+  font-family: "8bit";
   src: url("./assets/fonts/8bitoperator_jve.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mercy";
+  src: url("./assets/fonts/mercy.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mars";
+  src: url('./assets//fonts//Mars_Needs_Cunnilingus.ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -10,11 +24,12 @@
   --white: #fefdfe;
   --orange: #F57B32;
   --yellow: #FAFE49;
+  --green: #277933;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "8bit", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -5,11 +5,14 @@ import ActionButton from './ActionButton'
 import { ActionButtonData } from '../data/types'
 import { action_buttons } from '../data/action_buttons'
 import useSound from 'use-sound'
-import menuSelect from '../assets/sounds/snd_squeak.wav'
+import actionSelect from '../assets/sounds/snd_squeak.wav'
+import UserBar from './UserBar'
+import Console from './Console'
+import CharacterDisplay from './CharacterDisplay'
 
 const FightScreen: FC = () => {
 
-    const [playMenuSelect] = useSound(menuSelect)
+    const [playActionSelect] = useSound(actionSelect)
 
     const [selectedActionIndex, setSelectedActionIndex] = useState<number>(0)
     const [selectedAction, setSelectedAction] = useState<ActionButtonData>(action_buttons[selectedActionIndex])
@@ -19,7 +22,7 @@ const FightScreen: FC = () => {
     }, [selectedActionIndex])
 
     useEffect(() => {
-        playMenuSelect()
+        playActionSelect()
         // eslint-disable-next-line
     }, [selectedAction])
 
@@ -43,6 +46,9 @@ const FightScreen: FC = () => {
 
     return (
         <div className={styles.fight_screen}>
+            <CharacterDisplay />
+            <Console />
+            <UserBar />
             <div className={styles.action_buttons}>
                 {
                     action_buttons.map((action, index) => (

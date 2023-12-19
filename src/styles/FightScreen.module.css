@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 8px;
+    gap: 8px;
 }
 
 .action_buttons {
@@ -16,7 +17,7 @@
 }
 
 .action_button {
-    font-family: "8bitoperator JVE Regular";
+    font-family: "Mercy";
     color: var(--orange);
     border: 4px solid var(--orange);
     width: 300px;
@@ -25,10 +26,11 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 64px;
+    font-size: 40px;
     line-height: 1;
     cursor: pointer;
     background-color: transparent;
+    letter-spacing: -6px;
 }
 
 .action_button img {
@@ -48,4 +50,43 @@
 .selected_action {
     border-color: var(--yellow);
     color: var(--yellow);
+}
+
+.user_bar {
+    width: 90%;
+    font-family: "Mars";
+    display: flex;
+    font-size: 36px;
+    align-items: center;
+    gap: 128px;
+}
+
+.hp_info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.hp_bar {
+    width: 40px;
+    height: 30px;
+    background-color: var(--yellow);
+}
+
+.console {
+    width: 90%;
+    height: 200px;
+    border: 8px solid var(--white);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 90%;
+    height: 100%;
+}
+
+.grid div {
+    border: 1px solid var(--green);
 }
