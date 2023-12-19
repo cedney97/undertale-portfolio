@@ -1,27 +1,33 @@
-import React, { FC, Dispatch, SetStateAction } from 'react'
+import React, { FC } from 'react'
 import styles from '../styles/FightScreen.module.css'
 import classNames from 'classnames'
 import heart from '../assets/images/heart.png'
+import { ActionButtonData } from '../data/types'
 
 interface Props {
-    title: string
+    data: ActionButtonData
     isSelected: boolean
-    setIsSelected: Dispatch<SetStateAction<string>>
+    setIsSelected: () => void
 }
 
 const ActionButton: FC<Props> = ({
-    title,
+    data,
     isSelected,
-    setIsSelected
+    setIsSelected,
 }) => {
 
     const cx = classNames.bind(styles)
 
     return (
-        <div className={cx(styles.action_button, isSelected && styles.selected_action)} onClick={() => setIsSelected(title)}>
-            <img src={heart} alt="heart" />
-            {title}
-        </div>
+        <button className={cx(styles.action_button, isSelected && styles.selected_action)} onClick={() => setIsSelected()}>
+            {
+                isSelected ?
+                    <img src={heart} alt="heart" />
+                    :
+                    <img src={data.icon} alt={data.title} />
+            }
+            {data.title}
+        </button>
     )
 }
 

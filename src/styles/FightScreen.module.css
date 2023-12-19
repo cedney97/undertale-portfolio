@@ -28,11 +28,21 @@
     font-size: 64px;
     line-height: 1;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .action_button img {
     width: 60px;
-    height: 60px;
+    height: auto;
+}
+
+.selected_action img {
+    width: 30px;
+    height: auto;
+}
+
+.action_button:not(.selected_action) img {
+    filter: invert(53%) sepia(74%) saturate(1267%) hue-rotate(340deg) brightness(100%) contrast(93%);
 }
 
 .selected_action {

@@ -1,35 +1,50 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 import styles from '../styles/FightScreen.module.css'
 import ActionButton from './ActionButton'
+import { ActionButtonData } from '../data/types'
+import { action_buttons } from '../data/action_buttons'
 
 const FightScreen: FC = () => {
 
-    const [selectedAction, setSelectionAction] = useState<string>("HOME")
+    const [selectedActionIndex, setSelectedActionIndex] = useState<number>(0)
+    const [selectedAction, setSelectedAction] = useState<ActionButtonData>(action_buttons[selectedActionIndex])
+
+    useEffect(() => {
+        setSelectedAction(action_buttons[selectedActionIndex])
+    }, [selectedActionIndex])
+
+    useEffect(() => {
+        document.addEventListener("keydown", handleKeyDown, true)
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown, true)
+        }
+    }, [])
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+        e.preventDefault()
+        const keyPressed = e.key
+        if (keyPressed === "ArrowLeft" || keyPressed === "a") {
+            setSelectedActionIndex(prevIndex => prevIndex - 1 > -1 ? prevIndex - 1 : prevIndex)
+        } else if (keyPressed === "ArrowRight" || keyPressed === "d") {
+            setSelectedActionIndex(prevIndex => prevIndex + 1 < action_buttons.length ? prevIndex + 1 : prevIndex)
+        }
+    }
 
     return (
         <div className={styles.fight_screen}>
             <div className={styles.action_buttons}>
-                <ActionButton
-                    title="HOME"
-                    isSelected={selectedAction === "HOME"}
-                    setIsSelected={setSelectionAction}
-                />
-                <ActionButton
-                    title="ABOUT"
-                    isSelected={selectedAction === "ABOUT"}
-                    setIsSelected={setSelectionAction}
-                />
-                <ActionButton
-                    title="PROJECTS"
-                    isSelected={selectedAction === "PROJECTS"}
-                    setIsSelected={setSelectionAction}
-                />
-                <ActionButton
-                    title="CONTACT"
-                    isSelected={selectedAction === "CONTACT"}
-                    setIsSelected={setSelectionAction}
-                />
+                {
+                    action_buttons.map((action, index) => (
+                        <ActionButton
+                            key={index}
+                            data={action}
+                            isSelected={selectedAction === action}
+                            setIsSelected={() => setSelectedAction(action)}
+                        />
+                    ))
+                }
             </div>
         </div>
     )
