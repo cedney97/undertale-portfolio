@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "8bitoperator JVE Regular";
+  src: url("./assets/fonts/8bitoperator_jve.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --background: black;
+  --white: #fefdfe;
+  --orange: #F57B32;
+  --yellow: #FAFE49;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
