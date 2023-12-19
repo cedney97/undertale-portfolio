@@ -4,8 +4,12 @@ import styles from '../styles/FightScreen.module.css'
 import ActionButton from './ActionButton'
 import { ActionButtonData } from '../data/types'
 import { action_buttons } from '../data/action_buttons'
+import useSound from 'use-sound'
+import menuSelect from '../assets/sounds/snd_squeak.wav'
 
 const FightScreen: FC = () => {
+
+    const [playMenuSelect] = useSound(menuSelect)
 
     const [selectedActionIndex, setSelectedActionIndex] = useState<number>(0)
     const [selectedAction, setSelectedAction] = useState<ActionButtonData>(action_buttons[selectedActionIndex])
@@ -13,6 +17,11 @@ const FightScreen: FC = () => {
     useEffect(() => {
         setSelectedAction(action_buttons[selectedActionIndex])
     }, [selectedActionIndex])
+
+    useEffect(() => {
+        playMenuSelect()
+        // eslint-disable-next-line
+    }, [selectedAction])
 
     useEffect(() => {
         document.addEventListener("keydown", handleKeyDown, true)
