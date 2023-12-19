@@ -6,7 +6,7 @@ const CharacterDisplay = () => {
 
     const divs = []
     for (let i = 0; i < 12; ++i) {
-        divs.push(<div></div>)
+        divs.push(<div key={i}></div>)
     }
 
     return (
