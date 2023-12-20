@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b085e393.css",
+    "main.js": "/static/js/main.8010566a.js",
+    "static/js/845.5059a1bd.chunk.js": "/static/js/845.5059a1bd.chunk.js",
+    "static/js/787.727f9fae.chunk.js": "/static/js/787.727f9fae.chunk.js",
+    "static/media/SND_TXT1.wav": "/static/media/SND_TXT1.89ac11d6b51fd3cac2e2.wav",
+    "static/media/mercy.ttf": "/static/media/mercy.25c492f95bd401013c2f.ttf",
+    "static/media/snd_select.wav": "/static/media/snd_select.fc1fb90b889fc0317a28.wav",
+    "static/media/heart.png": "/static/media/heart.f6f67c7131b15d577794.png",
+    "static/media/about.png": "/static/media/about.86e5f9e8420fedaf2f12.png",
+    "static/media/Mars_Needs_Cunnilingus.ttf": "/static/media/Mars_Needs_Cunnilingus.fad496798cdd1b7306c2.ttf",
+    "static/media/8bitoperator_jve.woff": "/static/media/8bitoperator_jve.b2142881a6e665d8d60d.woff",
+    "static/media/snd_squeak.wav": "/static/media/snd_squeak.ce4f814641549bb748eb.wav",
+    "index.html": "/index.html",
+    "main.b085e393.css.map": "/static/css/main.b085e393.css.map",
+    "main.8010566a.js.map": "/static/js/main.8010566a.js.map",
+    "845.5059a1bd.chunk.js.map": "/static/js/845.5059a1bd.chunk.js.map",
+    "787.727f9fae.chunk.js.map": "/static/js/787.727f9fae.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b085e393.css",
+    "static/js/main.8010566a.js"
+  ]
+}
