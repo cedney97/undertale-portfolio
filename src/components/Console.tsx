@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styles from '../styles/FightScreen.module.css'
-import DefaultConsole from './consoleDisplays/DefaultConsole'
 
-const Console = () => {
+interface Props {
+    selectedAction: React.ReactNode
+}
+
+const Console: FC<Props> = ({
+    selectedAction
+}) => {
+
     return (
         <article className={styles.console}>
-            <DefaultConsole />
+            {selectedAction}
         </article>
     )
 }

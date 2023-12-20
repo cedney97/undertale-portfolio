@@ -17,42 +17,46 @@ const FightScreen: FC = () => {
     const [playSelect] = useSound(select)
 
     const [hoveredActionIndex, setHoveredActionIndex] = useState<number>(0)
-    const [hoveredAction, setHoveredAction] = useState<ActionButtonData>(action_buttons[hoveredActionIndex])
+    const [selectedActionIndex, setSelectedActionIndex] = useState<number>(0)
+    let hoveredIndex = hoveredActionIndex
 
     useEffect(() => {
-        setHoveredAction(action_buttons[hoveredActionIndex])
+        hoveredIndex = hoveredActionIndex
+        playActionSelect()
+        // eslint-disable-next-line
     }, [hoveredActionIndex])
 
     useEffect(() => {
-        playActionSelect()
-        // eslint-disable-next-line
-    }, [hoveredAction])
+        console.log("Selected: ", selectedActionIndex)
+        playSelect()
+    }, [selectedActionIndex])
 
-    useEffect(() => {
-        document.addEventListener("keydown", handleKeyDown, true)
+    // useEffect(() => {
+    //     document.addEventListener("keydown", handleKeyDown, true)
 
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown, true)
-        }
-    }, [])
+    //     return () => {
+    //         document.removeEventListener("keydown", handleKeyDown, true)
+    //     }
+    // }, [])
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-        e.preventDefault()
-        const keyPressed = e.key
-        if (keyPressed === "ArrowLeft" || keyPressed === "a") {
-            setHoveredActionIndex(prevIndex => prevIndex - 1 > -1 ? prevIndex - 1 : prevIndex)
-        } else if (keyPressed === "ArrowRight" || keyPressed === "d") {
-            setHoveredActionIndex(prevIndex => prevIndex + 1 < action_buttons.length ? prevIndex + 1 : prevIndex)
-        } else if (keyPressed === "z") {
-            console.log("pressed z")
-            playSelect()
-        }
-    }
+    // const handleKeyDown = (e: KeyboardEvent) => {
+    //     const keyPressed = e.key
+    //     if (keyPressed === "ArrowLeft" || keyPressed === "a") {
+    //         setHoveredActionIndex(prevIndex => prevIndex - 1 > -1 ? prevIndex - 1 : prevIndex)
+    //     } else if (keyPressed === "ArrowRight" || keyPressed === "d") {
+    //         setHoveredActionIndex(prevIndex => prevIndex + 1 < action_buttons.length ? prevIndex + 1 : prevIndex)
+    //     } else if (keyPressed === "z") {
+    //         console.log("here")
+    //         setSelectedActionIndex(hoveredIndex)
+    //     }
+    // }
 
     return (
         <div className={styles.fight_screen}>
             <CharacterDisplay />
-            <Console />
+            <Console
+                selectedAction={action_buttons[selectedActionIndex].console}
+            />
             <UserBar />
             <div className={styles.action_buttons}>
                 {
@@ -60,8 +64,8 @@ const FightScreen: FC = () => {
                         <ActionButton
                             key={index}
                             data={action}
-                            isSelected={hoveredAction === action}
-                            setIsSelected={() => setHoveredAction(action)}
+                            isSelected={selectedActionIndex === index}
+                            setIsSelected={() => setSelectedActionIndex(index)}
                         />
                     ))
                 }
