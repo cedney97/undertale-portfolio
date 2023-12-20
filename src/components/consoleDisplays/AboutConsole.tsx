@@ -10,7 +10,7 @@ const AboutConsole = () => {
     const [playTextSound] = useSound(textSound)
 
     return (
-        <Typewriter text="About Console" delay={10} />
+        <Typewriter text="About Console" delay={10} playSound={playTextSound} />
     )
 }
 

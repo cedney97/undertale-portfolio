@@ -65,7 +65,10 @@ const FightScreen: FC = () => {
                             key={index}
                             data={action}
                             isSelected={selectedActionIndex === index}
-                            setIsSelected={() => setSelectedActionIndex(index)}
+                            setSelectedIndex={setSelectedActionIndex}
+                            isHovered={hoveredActionIndex === index}
+                            setHoveredIndex={setHoveredActionIndex}
+                            index={index}
                         />
                     ))
                 }
