@@ -10,7 +10,9 @@ const DefaultConsole = () => {
     const [playTextSound] = useSound(textSound)
 
     return (
-        <Typewriter text="Hello World!" delay={100} playSound={playTextSound} />
+        <>
+            *&nbsp<Typewriter text="Hello World!" delay={50} playSound={playTextSound} />
+        </>
     )
 }
 

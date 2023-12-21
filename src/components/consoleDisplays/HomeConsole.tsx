@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/FightScreen.module.css'
+import styles from '../../styles/FightScreen.module.css'
 
 import Typewriter from '../Typewriter'
 import useSound from 'use-sound'
@@ -10,7 +10,14 @@ const HomeConsole = () => {
     const [playTextSound] = useSound(textSound)
 
     return (
-        <Typewriter text="Home Console" delay={10} playSound={playTextSound} />
+        <div className={styles.console_content} style={{ flexDirection: "row" }}>
+            *&nbsp;
+            <Typewriter
+                text="Hi, I'm Cade Edney! Feel free to look around and enjoy my Undertale-themed portfolio!"
+                delay={25}
+                playSound={playTextSound}
+            />
+        </div>
     )
 }
 

@@ -13,21 +13,27 @@ import CharacterDisplay from './CharacterDisplay'
 
 const FightScreen: FC = () => {
 
-    const [playActionSelect] = useSound(actionSelect)
+    const [playHover] = useSound(actionSelect)
     const [playSelect] = useSound(select)
 
+    const [debounce, setDebounce] = useState<boolean>(false)
     const [hoveredActionIndex, setHoveredActionIndex] = useState<number>(0)
     const [selectedActionIndex, setSelectedActionIndex] = useState<number>(0)
-    let hoveredIndex = hoveredActionIndex
 
     useEffect(() => {
-        hoveredIndex = hoveredActionIndex
-        playActionSelect()
+        if (!debounce && hoveredActionIndex !== selectedActionIndex && hoveredActionIndex !== -1) {
+            playHover()
+            setDebounce(() => {
+                setTimeout(() => {
+                    setDebounce(() => false)
+                }, 200)
+                return true
+            })
+        }
         // eslint-disable-next-line
     }, [hoveredActionIndex])
 
     useEffect(() => {
-        console.log("Selected: ", selectedActionIndex)
         playSelect()
     }, [selectedActionIndex])
 

@@ -10,7 +10,9 @@ const ContactConsole = () => {
     const [playTextSound] = useSound(textSound)
 
     return (
-        <Typewriter text="Contact Console" delay={10} playSound={playTextSound} />
+        <>
+            *&nbsp;<Typewriter text="Contact Console" delay={50} playSound={playTextSound} />
+        </>
     )
 }
 

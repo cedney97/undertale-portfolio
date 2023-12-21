@@ -68,7 +68,7 @@
 }
 
 .hp_bar {
-    width: 40px;
+    width: 60px;
     height: 30px;
     background-color: var(--yellow);
 }
@@ -77,6 +77,9 @@
     width: 90%;
     height: 200px;
     border: 8px solid var(--white);
+    padding: 8px 24px;
+    font-size: 36px;
+    line-height: 36px;
 }
 
 .grid {
@@ -89,4 +92,20 @@
 
 .grid div {
     border: 1px solid var(--green);
+}
+
+.console_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.console_choices {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.chosen {
+    color: var(--yellow);
+    cursor: pointer;
 }
