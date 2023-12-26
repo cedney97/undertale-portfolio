@@ -109,3 +109,19 @@
     color: var(--yellow);
     cursor: pointer;
 }
+
+.projects_console {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: repeat(2, 1fr);
+    width: 90%;
+    height: 100%;
+}
+
+.project_button {
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+}
