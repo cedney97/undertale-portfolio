@@ -10,12 +10,13 @@ const HomeConsole = () => {
     const [playTextSound] = useSound(textSound)
 
     return (
-        <div className={styles.console_content} style={{ flexDirection: "row" }}>
+        <div className={styles.console_content}>
             *&nbsp;
             <Typewriter
                 text="Hi, I'm Cade Edney! Feel free to look around and enjoy my Undertale-themed portfolio!"
                 delay={25}
                 playSound={playTextSound}
+                readyToType={true}
             />
         </div>
     )

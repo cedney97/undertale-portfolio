@@ -11,7 +11,13 @@ const DefaultConsole = () => {
 
     return (
         <>
-            *&nbsp<Typewriter text="Hello World!" delay={50} playSound={playTextSound} />
+            *&nbsp;
+            <Typewriter
+                text="Hello World!"
+                delay={50}
+                playSound={playTextSound}
+                readyToType={true}
+            />
         </>
     )
 }

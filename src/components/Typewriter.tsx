@@ -1,6 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { PlayFunction } from 'use-sound/dist/types'
-import styles from '../styles/FightScreen.module.css'
 
 interface Props {
     text: string,
@@ -21,7 +20,6 @@ const Typewriter: FC<Props> = ({
     const [currentText, setCurrentText] = useState<string>("")
     const [currentIndex, setCurrentIndex] = useState<number>(0)
 
-
     useEffect(() => {
         if (currentIndex < text.length && readyToType) {
             const timeout = setTimeout(() => {
@@ -37,16 +35,14 @@ const Typewriter: FC<Props> = ({
 
             return () => clearTimeout(timeout);
         } else {
-            if (setReadyToType) {
+            if (currentIndex >= text.length && setReadyToType) {
                 setReadyToType(true)
             }
         }
     }, [currentIndex, delay, text, readyToType]);
 
     return <>
-        {currentText.split("\\n").map((line, index) => {
-            return <div key={index}>{line}</div>
-        })}
+        {text && currentText}
     </>
 }
 

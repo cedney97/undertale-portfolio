@@ -19,7 +19,7 @@ const ContactConsole = () => {
     }, [checkType])
 
     return (
-        <div className={styles.console_content} style={{ flexDirection: "row" }}>
+        <div className={styles.console_content}>
             *&nbsp;
             <Typewriter
                 text="Feel free to email me at"
@@ -49,7 +49,7 @@ const ContactConsole = () => {
                 />
             </span>
             &nbsp;
-            <a href="https://github.com/cedney97">
+            <a href="https://github.com/cedney97" className={styles.chosen}>
                 <Typewriter
                     text="GitHub"
                     delay={25}
@@ -58,7 +58,7 @@ const ContactConsole = () => {
                     setReadyToType={setMoreType}
                 />
             </a>
-            & nbsp;
+            &nbsp;
             <span>
                 <Typewriter
                     text="for more of my work!"

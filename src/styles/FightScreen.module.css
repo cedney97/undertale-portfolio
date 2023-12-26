@@ -96,7 +96,7 @@
 
 .console_content {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .console_choices {

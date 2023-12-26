@@ -11,7 +11,8 @@ const ProjectsConsole = () => {
 
     return (
         <>
-            *&nbsp;<Typewriter text="Projects Console" delay={50} playSound={playTextSound} />
+            *&nbsp;
+            <Typewriter text="Projects Console" delay={50} playSound={playTextSound} />
         </>
     )
 }
