@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/undertale-portfolio/static/css/main.6e93eb7f.css",
-    "main.js": "/undertale-portfolio/static/js/main.f4a680cc.js",
+    "main.js": "/undertale-portfolio/static/js/main.fd04095a.js",
     "static/js/845.5059a1bd.chunk.js": "/undertale-portfolio/static/js/845.5059a1bd.chunk.js",
     "static/js/787.727f9fae.chunk.js": "/undertale-portfolio/static/js/787.727f9fae.chunk.js",
     "static/media/SND_TXT1.wav": "/undertale-portfolio/static/media/SND_TXT1.89ac11d6b51fd3cac2e2.wav",
@@ -14,12 +14,12 @@
     "static/media/snd_squeak.wav": "/undertale-portfolio/static/media/snd_squeak.ce4f814641549bb748eb.wav",
     "index.html": "/undertale-portfolio/index.html",
     "main.6e93eb7f.css.map": "/undertale-portfolio/static/css/main.6e93eb7f.css.map",
-    "main.f4a680cc.js.map": "/undertale-portfolio/static/js/main.f4a680cc.js.map",
+    "main.fd04095a.js.map": "/undertale-portfolio/static/js/main.fd04095a.js.map",
     "845.5059a1bd.chunk.js.map": "/undertale-portfolio/static/js/845.5059a1bd.chunk.js.map",
     "787.727f9fae.chunk.js.map": "/undertale-portfolio/static/js/787.727f9fae.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6e93eb7f.css",
-    "static/js/main.f4a680cc.js"
+    "static/js/main.fd04095a.js"
   ]
 }
