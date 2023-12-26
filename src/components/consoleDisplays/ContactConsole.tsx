@@ -14,10 +14,6 @@ const ContactConsole = () => {
     const [gitHubType, setGitHubType] = useState<boolean>(false)
     const [moreType, setMoreType] = useState<boolean>(false)
 
-    useEffect(() => {
-        console.log("ready to type check", checkType)
-    }, [checkType])
-
     return (
         <div className={styles.console_content}>
             *&nbsp;
