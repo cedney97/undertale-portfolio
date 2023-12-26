@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import FightScreen from './components/FightScreen';
+import StartScreen from './components/StartScreen';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <FightScreen />
-    </div>
+    <Routes>
+      <Route path="/undertale-portfolio" element={<StartScreen />} />
+      <Route path="/undertale-portfolio/fight" element={<FightScreen />} />
+    </Routes>
   );
 }
 
