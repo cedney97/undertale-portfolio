@@ -30,13 +30,13 @@ const ActionButton: FC<Props> = ({
 
     return (
         <button
-            className={cx(styles.action_button, (isSelected || isHovered) && styles.selected_action)}
+            className={cx(styles.action_button, isHovered && styles.hover_action, isSelected && styles.selected_action)}
             onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
             {
-                (isSelected || isHovered) ?
+                (isSelected) ?
                     <img src={heart} alt="heart" />
                     :
                     <img src={data.icon} alt={data.title} />

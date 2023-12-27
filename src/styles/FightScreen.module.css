@@ -38,18 +38,28 @@
     height: auto;
 }
 
-.selected_action img {
-    width: 30px;
-    height: auto;
+.hover_action {
+    border-color: var(--yellow);
+    color: var(--yellow);
 }
 
-.action_button:not(.selected_action) img {
+.action_button img {
     filter: invert(53%) sepia(74%) saturate(1267%) hue-rotate(340deg) brightness(100%) contrast(93%);
+}
+
+.hover_action img {
+    filter: invert(99%) sepia(91%) saturate(1459%) hue-rotate(331deg) brightness(117%) contrast(99%);
 }
 
 .selected_action {
     border-color: var(--yellow);
     color: var(--yellow);
+}
+
+.selected_action img {
+    width: 30px;
+    height: auto;
+    filter: none;
 }
 
 .user_bar {
