@@ -1,8 +1,7 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useCallback } from 'react'
 
 import styles from '../styles/FightScreen.module.css'
 import ActionButton from './ActionButton'
-import { ActionButtonData } from '../data/types'
 import { action_buttons } from '../data/action_buttons'
 import useSound from 'use-sound'
 import actionSelect from '../assets/sounds/snd_squeak.wav'
@@ -19,6 +18,14 @@ const FightScreen: FC = () => {
     const [debounce, setDebounce] = useState<boolean>(false)
     const [hoveredActionIndex, setHoveredActionIndex] = useState<number>(0)
     const [selectedActionIndex, setSelectedActionIndex] = useState<number>(0)
+    const [dialogueText, setDialogueText] = useState<string | undefined>(undefined)
+
+    const ABOUT_INDEX = 1
+    const PROJECTS_INDEX = 2
+
+    const isInProjects = () => {
+        return selectedActionIndex === ABOUT_INDEX || selectedActionIndex === PROJECTS_INDEX
+    }
 
     useEffect(() => {
         if (!debounce && hoveredActionIndex !== selectedActionIndex && hoveredActionIndex !== -1) {
@@ -35,31 +42,37 @@ const FightScreen: FC = () => {
 
     useEffect(() => {
         playSelect()
+        setDialogueText(() => action_buttons[selectedActionIndex].dialogueText)
+        // eslint-disable-next-line
     }, [selectedActionIndex])
 
-    // useEffect(() => {
-    //     document.addEventListener("keydown", handleKeyDown, true)
+    const handleKeyDown = useCallback((e: KeyboardEvent) => {
+        const keyPressed = e.key
+        if (!isInProjects()) {
+            if (keyPressed === "ArrowLeft" || keyPressed === "a") {
+                setHoveredActionIndex(prevIndex => prevIndex - 1 > -1 ? prevIndex - 1 : prevIndex)
+            } else if (keyPressed === "ArrowRight" || keyPressed === "d") {
+                setHoveredActionIndex(prevIndex => prevIndex + 1 < action_buttons.length ? prevIndex + 1 : prevIndex)
+            } else if (keyPressed === "z") {
+                setSelectedActionIndex(hoveredActionIndex)
+            }
+        }
+        // eslint-disable-next-line
+    }, [hoveredActionIndex])
 
-    //     return () => {
-    //         document.removeEventListener("keydown", handleKeyDown, true)
-    //     }
-    // }, [])
+    useEffect(() => {
+        document.addEventListener("keydown", handleKeyDown, true)
 
-    // const handleKeyDown = (e: KeyboardEvent) => {
-    //     const keyPressed = e.key
-    //     if (keyPressed === "ArrowLeft" || keyPressed === "a") {
-    //         setHoveredActionIndex(prevIndex => prevIndex - 1 > -1 ? prevIndex - 1 : prevIndex)
-    //     } else if (keyPressed === "ArrowRight" || keyPressed === "d") {
-    //         setHoveredActionIndex(prevIndex => prevIndex + 1 < action_buttons.length ? prevIndex + 1 : prevIndex)
-    //     } else if (keyPressed === "z") {
-    //         console.log("here")
-    //         setSelectedActionIndex(hoveredIndex)
-    //     }
-    // }
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown, true)
+        }
+    }, [handleKeyDown])
 
     return (
         <div className={styles.fight_screen}>
-            <CharacterDisplay />
+            <CharacterDisplay
+                dialogueText={dialogueText}
+            />
             <Console
                 selectedAction={action_buttons[selectedActionIndex].console}
             />

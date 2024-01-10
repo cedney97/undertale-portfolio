@@ -24,7 +24,7 @@ const ConsoleChoice: FC<Props> = ({
 }) => {
     return (
         <div
-            className={text === hoveredChoice || text == selectedChoice ? styles.chosen : ""}
+            className={text === hoveredChoice || text === selectedChoice ? styles.chosen : ""}
             onMouseEnter={() => setHoveredChoice(text)}
             onMouseLeave={() => setHoveredChoice("")}
             onClick={() => setSelectedChoice(text)}

@@ -14,7 +14,8 @@ export const action_buttons: ActionButtonData[] = [
     {
         title: "HOME",
         icon: homeIcon,
-        console: <HomeConsole />
+        console: <HomeConsole />,
+        dialogueText: `Use WASD to move, Z to select, and X to go back. Or use your mouse :)`
     },
     {
         title: "ABOUT",

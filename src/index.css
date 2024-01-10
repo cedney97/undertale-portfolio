@@ -19,6 +19,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Pixel Comic Sans";
+  src: url('./assets/fonts/pixel_comic_sans.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background: black;
   --white: #fefdfe;

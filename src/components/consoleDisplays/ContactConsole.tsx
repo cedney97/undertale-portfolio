@@ -37,7 +37,7 @@ const ContactConsole = () => {
             &nbsp;
             <span>
                 <Typewriter
-                    text="or check out my"
+                    text="and check out my"
                     delay={25}
                     playSound={playTextSound}
                     readyToType={checkType}

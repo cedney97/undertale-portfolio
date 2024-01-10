@@ -11,9 +11,7 @@ const AboutConsole = () => {
     const [hoveredChoice, setHoveredChoice] = useState<string>("")
     const [selectedChoice, setSelectedChoice] = useState<string>("")
     const [playTextSound] = useSound(textSound)
-    const [studentReady, setStudentReady] = useState<boolean>(false)
-    const [programmerReady, setProgrammerReady] = useState<boolean>(false)
-    const [musicianReady, setMusicianReady] = useState<boolean>(false)
+    const [optionsReady, setOptionsReady] = useState<boolean>(false)
 
     return (
         <div className={styles.console_content}>
@@ -23,7 +21,7 @@ const AboutConsole = () => {
                 delay={25}
                 readyToType={true}
                 playSound={playTextSound}
-                setReadyToType={setStudentReady}
+                setReadyToType={setOptionsReady}
             />
             <div className={styles.console_choices}>
                 <ConsoleChoice
@@ -32,9 +30,7 @@ const AboutConsole = () => {
                     setHoveredChoice={setHoveredChoice}
                     selectedChoice={selectedChoice}
                     setSelectedChoice={setSelectedChoice}
-                    playSound={playTextSound}
-                    readyToType={studentReady}
-                    setReadyToType={setProgrammerReady}
+                    readyToType={optionsReady}
                 />
                 <ConsoleChoice
                     text="Programmer"
@@ -42,9 +38,7 @@ const AboutConsole = () => {
                     setHoveredChoice={setHoveredChoice}
                     selectedChoice={selectedChoice}
                     setSelectedChoice={setSelectedChoice}
-                    playSound={playTextSound}
-                    readyToType={programmerReady}
-                    setReadyToType={setMusicianReady}
+                    readyToType={optionsReady}
                 />
                 <ConsoleChoice
                     text="Musician"
@@ -52,8 +46,7 @@ const AboutConsole = () => {
                     setHoveredChoice={setHoveredChoice}
                     selectedChoice={selectedChoice}
                     setSelectedChoice={setSelectedChoice}
-                    playSound={playTextSound}
-                    readyToType={musicianReady}
+                    readyToType={optionsReady}
                 />
             </div>
         </div>

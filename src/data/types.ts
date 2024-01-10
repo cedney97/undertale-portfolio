@@ -2,6 +2,7 @@ export type ActionButtonData = {
     title: string
     icon: string
     console: React.ReactNode
+    dialogueText?: string
 }
 
 export type ProjectData = {
@@ -14,4 +15,9 @@ export type ProjectData = {
 export type ProjectDataPage = {
     projects: ProjectData[]
     page: number
+}
+
+export type ConsoleChoiceData = {
+    title: string
+    description: string
 }
