@@ -20,4 +20,7 @@ export type ProjectDataPage = {
 export type ConsoleChoiceData = {
     title: string
     dialogue: string | undefined
+    link?: string
+    repo?: string
+    technologies?: string[]
 }

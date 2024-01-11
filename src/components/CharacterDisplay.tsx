@@ -9,10 +9,16 @@ import useSound from 'use-sound'
 
 interface Props {
     dialogueText?: string
+    link?: string
+    repo?: string
+    technologies?: string[]
 }
 
 const CharacterDisplay: FC<Props> = ({
-    dialogueText
+    dialogueText,
+    link,
+    repo,
+    technologies
 }) => {
 
     let cx = classNames.bind(styles)

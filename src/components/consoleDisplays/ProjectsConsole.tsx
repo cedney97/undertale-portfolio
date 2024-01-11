@@ -63,6 +63,7 @@ const ProjectsConsole: FC<Props> = ({
             return
         }
         if (setDialogueText && selectedIndex >= 0) {
+            setHoveredIndex(selectedIndex)
             setDialogueText(() => projects_choices[currentPageIndex][selectedIndex].dialogue || ":)")
         }
         // eslint-disable-next-line
@@ -71,32 +72,17 @@ const ProjectsConsole: FC<Props> = ({
     return (
         <div className={styles.projects_console}>
             {projects_choices[currentPageIndex].map((choice, index) => {
-                if (index === projects_choices[currentPageIndex].length - 1) {
-                    return <ConsoleChoice
-                        key={index}
-                        index={index}
-                        text={choice.title}
-                        isHovered={hoveredIndex === index}
-                        setHoveredChoice={setHoveredIndex}
-                        isSelected={selectedIndex === index}
-                        setSelectedChoice={setSelectedIndex}
-                        playSound={playTextSound}
-                        readyToType={true}
-                        pageTurn={choice.title === "Next Page" ? nextPage : prevPage}
-                    />
-                } else {
-                    return <ConsoleChoice
-                        key={index}
-                        index={index}
-                        text={choice.title}
-                        isHovered={hoveredIndex === index}
-                        setHoveredChoice={setHoveredIndex}
-                        isSelected={selectedIndex === index}
-                        setSelectedChoice={setSelectedIndex}
-                        playSound={playTextSound}
-                        readyToType={true}
-                    />
-                }
+                return <ConsoleChoice
+                    key={index}
+                    index={index}
+                    text={choice.title}
+                    isHovered={hoveredIndex === index}
+                    setHoveredChoice={setHoveredIndex}
+                    isSelected={selectedIndex === index}
+                    setSelectedChoice={setSelectedIndex}
+                    playSound={playTextSound}
+                    readyToType={true}
+                />
             })}
         </div>
     )
