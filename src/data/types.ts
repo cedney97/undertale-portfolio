@@ -19,5 +19,5 @@ export type ProjectDataPage = {
 
 export type ConsoleChoiceData = {
     title: string
-    description: string
+    dialogue: string
 }

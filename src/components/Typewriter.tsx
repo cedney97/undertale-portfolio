@@ -7,6 +7,7 @@ interface Props {
     playSound?: PlayFunction,
     readyToType?: boolean,
     setReadyToType?: Dispatch<SetStateAction<boolean>>
+    setBeforeToggle?: Dispatch<SetStateAction<boolean>>
 }
 
 const Typewriter: FC<Props> = ({
@@ -14,13 +15,17 @@ const Typewriter: FC<Props> = ({
     delay,
     playSound,
     readyToType,
-    setReadyToType
+    setReadyToType,
+    setBeforeToggle
 }) => {
     const [audioDelay, setAudioDelay] = useState<boolean>(true)
     const [currentText, setCurrentText] = useState<string>("")
     const [currentIndex, setCurrentIndex] = useState<number>(0)
 
     useEffect(() => {
+        if (currentIndex === 1 && setBeforeToggle) {
+            setBeforeToggle(true)
+        }
         if (currentIndex < text.length && readyToType) {
             const timeout = setTimeout(() => {
                 if (playSound && audioDelay) {
@@ -39,7 +44,14 @@ const Typewriter: FC<Props> = ({
                 setReadyToType(true)
             }
         }
+        // eslint-disable-next-line
     }, [currentIndex, delay, text, readyToType]);
+
+    useEffect(() => {
+        setCurrentText("")
+        setCurrentIndex(0)
+        // eslint-disable-next-line
+    }, [text])
 
     return <>
         {text && currentText}

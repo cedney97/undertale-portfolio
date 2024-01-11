@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import styles from '../styles/FightScreen.module.css'
 
 interface Props {
-    selectedAction: React.ReactNode
+    selectedAction: ReactNode
 }
 
 const Console: FC<Props> = ({

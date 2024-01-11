@@ -1,33 +1,40 @@
-import React, { Dispatch, FC, SetStateAction } from 'react'
+import React, { Dispatch, FC, SetStateAction, useState } from 'react'
 import styles from '../styles/FightScreen.module.css'
 import Typewriter from './Typewriter'
+import classNames from 'classnames'
 
 interface Props {
+    index: number,
     text: string,
-    hoveredChoice: string
-    setHoveredChoice: Dispatch<SetStateAction<string>>
-    selectedChoice: string
-    setSelectedChoice: Dispatch<SetStateAction<string>>
+    isHovered: boolean
+    setHoveredChoice: Dispatch<SetStateAction<number>>
+    isSelected: boolean
+    setSelectedChoice: Dispatch<SetStateAction<number>>
     playSound?: () => void
     readyToType?: boolean
     setReadyToType?: Dispatch<SetStateAction<boolean>>
 }
 const ConsoleChoice: FC<Props> = ({
+    index,
     text,
-    hoveredChoice,
+    isHovered,
     setHoveredChoice,
-    selectedChoice,
+    isSelected,
     setSelectedChoice,
     playSound,
     readyToType,
     setReadyToType
 }) => {
+
+    const cx = classNames.bind(styles)
+    const [beforeToggle, setBeforeToggle] = useState<boolean>(false)
+
     return (
         <div
-            className={text === hoveredChoice || text === selectedChoice ? styles.chosen : ""}
-            onMouseEnter={() => setHoveredChoice(text)}
-            onMouseLeave={() => setHoveredChoice("")}
-            onClick={() => setSelectedChoice(text)}
+            className={cx(isHovered && styles.hover, isSelected && styles.selected, beforeToggle && styles.asterisk)}
+            onMouseEnter={() => setHoveredChoice(index)}
+            onMouseLeave={() => setHoveredChoice(-1)}
+            onClick={() => setSelectedChoice(index)}
         >
             <Typewriter
                 text={text}
@@ -35,6 +42,7 @@ const ConsoleChoice: FC<Props> = ({
                 readyToType={readyToType}
                 setReadyToType={setReadyToType}
                 playSound={playSound}
+                setBeforeToggle={setBeforeToggle}
             />
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useCallback } from 'react'
+import React, { FC, useState, useEffect, useCallback, ReactElement } from 'react'
 
 import styles from '../styles/FightScreen.module.css'
 import ActionButton from './ActionButton'
@@ -57,6 +57,10 @@ const FightScreen: FC = () => {
                 setSelectedActionIndex(hoveredActionIndex)
             }
         }
+        if (keyPressed === "x") {
+            setSelectedActionIndex(0)
+            setHoveredActionIndex(0)
+        }
         // eslint-disable-next-line
     }, [hoveredActionIndex])
 
@@ -68,13 +72,23 @@ const FightScreen: FC = () => {
         }
     }, [handleKeyDown])
 
+    const getConsole = () => {
+        let cons = action_buttons[selectedActionIndex].console
+        if (isInProjects()) {
+            cons = React.cloneElement(cons as ReactElement<any>, {
+                setDialogueText: setDialogueText
+            })
+        }
+        return cons
+    }
+
     return (
         <div className={styles.fight_screen}>
             <CharacterDisplay
                 dialogueText={dialogueText}
             />
             <Console
-                selectedAction={action_buttons[selectedActionIndex].console}
+                selectedAction={getConsole()}
             />
             <UserBar />
             <div className={styles.action_buttons}>
