@@ -25,7 +25,7 @@ const ContactConsole = () => {
                 setReadyToType={setEmailType}
             />
             &nbsp;
-            <a href="mailto:cadeedney@gmail.com" className={styles.chosen}>
+            <a href="mailto:cadeedney@gmail.com" className={styles.hover}>
                 <Typewriter
                     text="cadeedney@gmail.com"
                     delay={25}
@@ -45,7 +45,7 @@ const ContactConsole = () => {
                 />
             </span>
             &nbsp;
-            <a href="https://github.com/cedney97" className={styles.chosen}>
+            <a href="https://github.com/cedney97" className={styles.hover}>
                 <Typewriter
                     text="GitHub"
                     delay={25}

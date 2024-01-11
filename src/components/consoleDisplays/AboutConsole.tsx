@@ -28,14 +28,12 @@ const AboutConsole: FC<Props> = ({
             setHoveredIndex(prevIndex => prevIndex + 1 < about_choices.length ? prevIndex + 1 : prevIndex)
         } else if (key === "z") {
             setSelectedIndex(hoveredIndex)
-        } else if (key === "x") {
-
         }
     }, [hoveredIndex])
 
     useEffect(() => {
         if (setDialogueText && selectedIndex >= 0) {
-            setDialogueText(() => about_choices[selectedIndex].dialogue)
+            setDialogueText(() => about_choices[selectedIndex].dialogue || ":)")
         }
         // eslint-disable-next-line
     }, [selectedIndex])

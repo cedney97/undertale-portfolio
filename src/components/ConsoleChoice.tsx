@@ -13,6 +13,7 @@ interface Props {
     playSound?: () => void
     readyToType?: boolean
     setReadyToType?: Dispatch<SetStateAction<boolean>>
+    pageTurn?: () => void
 }
 const ConsoleChoice: FC<Props> = ({
     index,
