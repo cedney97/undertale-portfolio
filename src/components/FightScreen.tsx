@@ -9,6 +9,7 @@ import select from '../assets/sounds/snd_select.wav'
 import UserBar from './UserBar'
 import Console from './Console'
 import CharacterDisplay from './CharacterDisplay'
+import github from '../assets/images/github.png'
 
 const FightScreen: FC = () => {
 
@@ -123,6 +124,7 @@ const FightScreen: FC = () => {
                     ))
                 }
             </div>
+            <a href="https://github.com/cedney97/undertale-portfolio" className={styles.github_icon}><img src={github} /></a>
         </div>
     )
 }
