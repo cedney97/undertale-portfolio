@@ -8,10 +8,16 @@ import ConsoleChoice from '../ConsoleChoice'
 
 interface Props {
     setDialogueText?: Dispatch<SetStateAction<string | undefined>>
+    setRepo?: Dispatch<SetStateAction<string | undefined>>
+    setLink?: Dispatch<SetStateAction<string | undefined>>
+    setTechnologies?: Dispatch<SetStateAction<string[] | undefined>>
 }
 
 const ProjectsConsole: FC<Props> = ({
-    setDialogueText
+    setDialogueText,
+    setRepo,
+    setLink,
+    setTechnologies
 }) => {
 
     const [currentPageIndex, setCurrentPageIndex] = useState<number>(0)
@@ -60,11 +66,17 @@ const ProjectsConsole: FC<Props> = ({
             setHoveredIndex(0)
             setSelectedIndex(-1)
             setDialogueText!(undefined)
+            setRepo!(undefined)
+            setLink!(undefined)
+            setTechnologies!(undefined)
             return
         }
-        if (setDialogueText && selectedIndex >= 0) {
+        if (setDialogueText && setRepo && setTechnologies && setLink && selectedIndex >= 0) {
             setHoveredIndex(selectedIndex)
             setDialogueText(() => projects_choices[currentPageIndex][selectedIndex].dialogue || ":)")
+            setRepo(projects_choices[currentPageIndex][selectedIndex].repo)
+            setLink(projects_choices[currentPageIndex][selectedIndex].link)
+            setTechnologies(projects_choices[currentPageIndex][selectedIndex].technologies)
         }
         // eslint-disable-next-line
     }, [selectedIndex])

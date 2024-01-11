@@ -19,12 +19,19 @@ const FightScreen: FC = () => {
     const [hoveredActionIndex, setHoveredActionIndex] = useState<number>(0)
     const [selectedActionIndex, setSelectedActionIndex] = useState<number>(0)
     const [dialogueText, setDialogueText] = useState<string | undefined>(undefined)
+    const [repo, setRepo] = useState<string | undefined>(undefined)
+    const [link, setLink] = useState<string | undefined>(undefined)
+    const [technologies, setTechnologies] = useState<string[] | undefined>(undefined)
 
     const ABOUT_INDEX = 1
     const PROJECTS_INDEX = 2
 
     const isInProjects = () => {
-        return selectedActionIndex === ABOUT_INDEX || selectedActionIndex === PROJECTS_INDEX
+        return selectedActionIndex === PROJECTS_INDEX
+    }
+
+    const isInAbout = () => {
+        return selectedActionIndex === ABOUT_INDEX
     }
 
     useEffect(() => {
@@ -48,7 +55,7 @@ const FightScreen: FC = () => {
 
     const handleKeyDown = useCallback((e: KeyboardEvent) => {
         const keyPressed = e.key
-        if (!isInProjects()) {
+        if (!isInProjects() && !isInAbout()) {
             if (keyPressed === "ArrowLeft" || keyPressed === "a") {
                 setHoveredActionIndex(prevIndex => prevIndex - 1 > -1 ? prevIndex - 1 : prevIndex)
             } else if (keyPressed === "ArrowRight" || keyPressed === "d") {
@@ -76,6 +83,13 @@ const FightScreen: FC = () => {
         let cons = action_buttons[selectedActionIndex].console
         if (isInProjects()) {
             cons = React.cloneElement(cons as ReactElement<any>, {
+                setDialogueText: setDialogueText,
+                setRepo: setRepo,
+                setLink: setLink,
+                setTechnologies: setTechnologies
+            })
+        } else if (isInAbout()) {
+            cons = React.cloneElement(cons as ReactElement<any>, {
                 setDialogueText: setDialogueText
             })
         }
@@ -86,6 +100,9 @@ const FightScreen: FC = () => {
         <div className={styles.fight_screen}>
             <CharacterDisplay
                 dialogueText={dialogueText}
+                repo={repo}
+                link={link}
+                technologies={technologies}
             />
             <Console
                 selectedAction={getConsole()}

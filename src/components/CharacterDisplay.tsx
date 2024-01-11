@@ -6,6 +6,7 @@ import classNames from 'classnames'
 import Typewriter from './Typewriter'
 import textSound from '../assets/sounds/snd-textsans.mp3'
 import useSound from 'use-sound'
+import TechnologiesList from './TechnologiesList'
 
 interface Props {
     dialogueText?: string
@@ -28,7 +29,17 @@ const CharacterDisplay: FC<Props> = ({
 
     const divs = []
     for (let i = 0; i < 12; ++i) {
-        if (i === 8) {
+        if (i === 0 && (repo || link || technologies)) {
+            divs.push(
+                <div key={i}>
+                    <div className={styles.details}>
+                        {repo && <a href={repo}>Repository</a>}
+                        {link && <a href={link}>Website</a>}
+                        {technologies && <TechnologiesList technologies={technologies} />}
+                    </div>
+                </div>
+            )
+        } else if (i === 8) {
             divs.push(
                 <div key={i}>
                     <img src={avatar} id={styles.avatar} />
@@ -49,7 +60,9 @@ const CharacterDisplay: FC<Props> = ({
                 </div>
             )
         } else {
-            divs.push(<div key={i}></div>)
+            divs.push(
+                <div key={i}></div>
+            )
         }
     }
 

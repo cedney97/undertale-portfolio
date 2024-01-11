@@ -101,7 +101,7 @@
     position: relative;
 }
 
-.grid div {
+.grid>div {
     border: 1px solid var(--green);
     display: flex;
     justify-content: center;
@@ -257,4 +257,25 @@
     z-index: 4;
     left: 2%;
     top: 25%;
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 4px 8px;
+    font-size: 24px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    background-color: #00003E;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.details a {
+    color: var(--yellow)
 }

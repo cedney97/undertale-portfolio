@@ -47,7 +47,7 @@ export const projects_choices: ConsoleChoiceData[][] = [
         {
             title: "Frontier Camp Activity Assignments",
             dialogue: "A summer project to algorithmically assign campers to activities, catered towards Frontier Camp.",
-            link: "https://github.com/cedney97/CamperAssignments",
+            repo: "https://github.com/cedney97/CamperAssignments",
             technologies: ["Java", "Java Swing (GUI)"]
         },
         {
