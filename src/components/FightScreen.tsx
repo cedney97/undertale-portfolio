@@ -51,6 +51,9 @@ const FightScreen: FC = () => {
     useEffect(() => {
         playSelect()
         setDialogueText(() => action_buttons[selectedActionIndex].dialogueText)
+        setRepo(undefined)
+        setLink(undefined)
+        setTechnologies(undefined)
         // eslint-disable-next-line
     }, [selectedActionIndex])
 
